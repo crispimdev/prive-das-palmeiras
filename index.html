@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="estilo.css">
+<script src="prive.js"></script>
+    <title>Privê das Palmeiras</title>
+    <style>
+            #dvslider{
+        width:600px;
+        height:600px;
+        border: 2px solid red;
+        margin: auto;
+        } </style> 
+
+    
+        <script>
+
+        var imgs=[];
+        var slider;
+        var imgAtual;
+        var maxImg;
+        var tmp;
+        
+
+        function preCarregamento(){
+                             var s=1;
+                             for(var i=0;i<5;i++){
+                             imgs[i]= new Image();
+                             imgs[i].src="imgs/s"+ s + ".jpeg";
+                             s++;
+                                   }
+                             }
+
+      function carregarImg(img){ 
+              slider.style.backgroundImage="url('"+                                                                                                 imgs[img].src + "')";
+        }
+        function inicia() {
+              preCarregamento();
+              imgAtual=1;
+              maxImg=imgs.length-1;
+               slider=document.getElementById("dvslider");
+              carregarImg(imgAtual);
+              tmp=setInterval(troca,3000.5);
+              }
+        
+           function troca(){
+               imgAtual++;
+               if(imgAtual>maxImg){
+                   imgAtual=0;}
+                   carregarImg(imgAtual);
+               }
+           
+        window.addEventListener("load", inicia);
+
+    </script>
+</head>
+<body>
+    <header>
+      <img src="palmeiras.png" alt="palmeiras">
+     
+        <H1 id="titulo1">Privê das Palmeiras</H1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Contato</a>
+        <a href="#">Promoções</a>
+    </nav>
+    </header>
+    
+    <main> 
+        <br><br><br>
+        <div id="dvslider">
+            <h1> Aqui é a Slider<h1>
+            
+            </div>
+        </main>
+    <footer>
+    <a href="https://www.instagram.com/privedaspalmeiras75/" target="_blank">instagram@privedaspalmeiras</a>
+    </footer>
+</body>
+</html>
